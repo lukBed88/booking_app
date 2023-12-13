@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import { faCircleCheck } from '@fortawesome/free-regular-svg-icons'
 import { NavLink } from 'react-router-dom'
@@ -37,15 +37,6 @@ const StyledNavLink = styled(NavLink)`
       transition: 0.3s;
     }
 `
-
-const spin = keyframes`
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-`;
 
 const LoaderIcon = styled(FontAwesomeIcon)`
     display: flex;
