@@ -9,7 +9,7 @@ import ResetPasswordPanel from './home/ResetPassword/ResetPasswordPanel'
 function App() {
 
   return (
-    <Router>
+    <Router basename="/booking-app">
       <Routes>
       <Route exact path={'/'} element = {<Home/>}/>
       <Route exact path={'/login'} element = {<LoginPanel/>}/>
