@@ -29,7 +29,7 @@ const ResetPasswordPanel = () => {
           .then(() => {
             setIsLoginState(true)
         })
-        .catch((error) => {
+        .catch(() => {
           setIsLoginState(false)
         })
         }

@@ -7,12 +7,12 @@ const StyledHeader = styled.h2`
     justify-content: center;
     color: #43A6C6;
     padding: 15px;
-    max-width: 80%;
-
+    width: 80%;
     @media ${props=> props.theme.media.mobile} {
         font-size: 18px;
         padding-bottom: 5px;
         text-align: center;
+        margin-bottom: 20px;
   }
 `
 const ContainerStyledInput = styled.div`
@@ -33,15 +33,24 @@ const StyledInput = styled.input`
         font-size: 14px;
         color: #AEAEAE;
         padding-left: 20px;
-    @media ${props=> props.theme.media.mobile} {
-        font-size:12px;
+    @media ${props=> props.theme.media.tablet} {
+        font-size:14px;
         padding-left: 5px;
   }
+  @media ${props=> props.theme.media.mobile} {
+      font-size:11px;
+      padding-left: 5px;
+      /* margin: 15px 0; */
     }
-    @media ${props=> props.theme.media.mobile} {
-        font-size:12px;
+  }
+  @media ${props=> props.theme.media.tablet} {
+        font-size:14px;
         padding-left: 5px;
   }
+  @media ${props=> props.theme.media.mobile} {
+        width: 70%;
+        margin: 12px 0;
+    }
 
 `
 const IconFontAwesome = styled(FontAwesomeIcon)`
@@ -73,6 +82,11 @@ const StyledButton = styled.button`
         border: 1px solid rgb(80, 184, 231);
         color: white;
     }
+    @media ${props=> props.theme.media.mobile} {
+        width: 50%;
+        margin: 10px auto 10px auto;
+        font-size: 14px;
+  }
     @media ${props=> props.theme.media.mobile} {
         width: 50%;
         margin: 10px auto 10px auto;

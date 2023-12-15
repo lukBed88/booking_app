@@ -14,7 +14,7 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 background-color: white;
-opacity:0.5;
+opacity:0.7;
 `
 const StyledHeader = styled.h4`
     font-family: 'Times New Roman', Times, serif;
@@ -23,6 +23,12 @@ const StyledHeader = styled.h4`
     letter-spacing: 1px;
     margin-block-start: 10px;
     margin-block-end: 0;
+    @media ${props=> props.theme.media.tablet} {
+          font-size: 17px
+        }
+    @media ${props=> props.theme.media.mobile} {
+          font-size: 13px;
+        }
 `
 
 const spin = keyframes`
@@ -46,6 +52,12 @@ const LoaderIcon = styled(FontAwesomeIcon)`
     animation-duration: 1000ms;
     animation-iteration-count: infinite;
     animation-timing-function: linear;  
+    @media ${props=> props.theme.media.tablet} {
+          font-size: 35px;
+        }
+    @media ${props=> props.theme.media.mobile} {
+          font-size: 27px;
+        }
 ` 
 const LoginLoader = () => {
     

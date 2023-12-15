@@ -4,7 +4,6 @@ const UPDATE_DOCTORS_DATA_URL = 'https://medic-app-6746d-default-rtdb.firebaseio
 
 export const updateDoctorsData = (doctorId,visitsId,patient) => {
     const token = getIDToken()
-    console.log(token)
 
     const options = {
         method: 'PATCH',
@@ -18,9 +17,6 @@ export const updateDoctorsData = (doctorId,visitsId,patient) => {
     .then((resp) => {
         return resp.json()
     })
-    // .then((data) => {
-    //     console.log(data)
-    // })
 }
 
 export default updateDoctorsData

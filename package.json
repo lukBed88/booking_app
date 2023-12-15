@@ -1,6 +1,6 @@
 {
   "homepage":
-  "https://lukbed88.github.io/booking-app",
+  "https://lukbed88.github.io",
   "name": "booking-app",
   "version": "0.2.0",
   "private": true,
@@ -39,7 +39,11 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "rules": {
+      "arrow-body-style": "off",
+      "no-unused-vars": "off"
+    }
   },
   "browserslist": {
     "production": [

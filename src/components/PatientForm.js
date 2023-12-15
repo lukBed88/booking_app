@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 import React from "react";
 import {faXmark,faUser,faSignature,faIdCard,faPhone,faHouseChimney} from '@fortawesome/free-solid-svg-icons'
 import validationPatientForm from "../helpers/validationPatientForm";
@@ -25,7 +26,7 @@ const PatientForm = (props) => {
         }
 
     }
-    const formMistakes = () => {        
+    const formMistakes = () => {
         const errorsArray = mistakesForm.filter(key => !dataArray.hasOwnProperty(key));
         return dataArray.map((data) => {
                 errorsArray.map((error) => {
@@ -57,10 +58,18 @@ const PatientForm = (props) => {
     }
 
     const printErrorMessage = (mistakesArr) => {
-        
-        return mistakesArr.map((message,index) => (
+        const allMessageEqual = mistakesArr.every(item => item.message === mistakesArr[0].message)
+        if(allMessageEqual === true) {
+            return(
+                <ErrorMessage>{mistakesArr[0].message}</ErrorMessage>
+            )
+        }
+        else{
+
+            return mistakesArr.map((message,index) => (
                 <ErrorMessage key={index}>{message.message}</ErrorMessage>
                 ))
+            }
     }
 
     return (

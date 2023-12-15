@@ -11,7 +11,7 @@ const ContainerCalendar = styled.div`
 `
 const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
     position: absolute;
-    transform: translate(990%,90%);
+    transform: translate(870%,100%);
     font-size: 20px;
     cursor: pointer;
     transition: all 0.3s;
@@ -30,6 +30,10 @@ const DiaryStyled = styled(Calendar)`
       justify-content: center;
       align-items: center;
       padding: 15px;
+      @media ${props=> props.theme.media.mobile} {
+        width: 80vw;
+    }
+
 
     .react-calendar__navigation {
       display: flex;

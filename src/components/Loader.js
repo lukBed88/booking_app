@@ -19,6 +19,12 @@ const LoaderIcon = styled(FontAwesomeIcon)`
     animation-duration: 1000ms;
     animation-iteration-count: infinite;
     animation-timing-function: linear;  
+    @media ${props=> props.theme.media.tablet} {
+          font-size: 37px;
+        }
+    @media ${props=> props.theme.media.mobile} {
+          font-size: 30px;
+        }
 ` 
 const Loader = () => {
     

@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 const validationPatientForm = (patientFormValue) => {
     const requireKeys = ['imie', 'nazwisko', 'phoneNumber', 'pesel', 'adres']
     const miss = []
@@ -12,7 +13,7 @@ const validationPatientForm = (patientFormValue) => {
     if (missingKey.length === 0) {
         patientFormValueArray.map(([name,value]) => {
         if((name === 'imie' && (!nameRegex.test(value) || value.length < 3))){
-          message = 'Imię i nazwisko musi mieć 3 litery i nie mogą występować cyfry'
+          message = 'Imię musi mieć 3 litery i nie mogą występować cyfry'
           const nBadValidation = {...badValidation}
           nBadValidation.name = name
           nBadValidation.message = message

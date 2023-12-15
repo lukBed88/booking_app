@@ -47,7 +47,7 @@ export const Calendar = () => {
     const [togglePatient,setIsTogglePatient] = React.useState(false)
     const [patientCardActive,setPatientCardActive] = React.useState(false)
 
-    const [isLoading, setIsLoading] = React.useState(true);
+    const [isLoading, setIsLoading] = React.useState(false);
 
     React.useEffect(() => {
         const fetchData = async () => {

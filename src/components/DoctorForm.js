@@ -37,8 +37,6 @@ const DoctorForm = (props) => {
     const [mistakesForm,setIsMistakesForm] = React.useState([])
     const [profession,setIsProfession] = React.useState([])
     const [slotsOffice,setIsSlotsOffice] = React.useState([])
-
-
     const [selectedSpecialization, setSelectedSpecialization] = React.useState('')
 
     const dataArray = [
@@ -180,11 +178,19 @@ const DoctorForm = (props) => {
         
     };
     const printErrorMessage = (mistakesArr) => {
-        return mistakesArr.map((message,index) => {
+        const allMessageEqual = mistakesArr.every(item => item?.message === mistakesForm[0]?.message)
+        if(allMessageEqual === true && mistakesArr.length > 0){
+            return (
+                <ErrorMessage>{mistakesArr[0].message}</ErrorMessage>
+                )
+            }
+        else {
+             return mistakesArr.map((message,index) => {
             return (
                 <ErrorMessage key={index}>{message.message}</ErrorMessage>
-                )
-        })
+                    )
+                })
+            }
     }
 
 return (

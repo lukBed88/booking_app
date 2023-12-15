@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 import React from "react";
 import idSlotDay from "../helpers/idSlotDay";
 import slotsVisit from "../helpers/slotsVisit";
@@ -114,6 +115,7 @@ const PatientCardData = (props) => {
     }
 
     const removePatient = async () => {
+        console.log('delete')
         await deletePatient(patientId)
         deleteVisit()
     }
@@ -140,6 +142,9 @@ const PatientCardData = (props) => {
                 :
                 null
             }
+            {/* {
+                actv === true ? <StyledWindow onClick = {(e) => isRemove(e) }/> : null
+            } */}
         </ContainerPatientCard>
     )
 }

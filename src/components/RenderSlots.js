@@ -32,6 +32,7 @@ const RenderSlots = (props) => {
                     return el
                         }
                 })
+
                     return (
                         <DaySlots
                         key={index}
@@ -60,9 +61,10 @@ const RenderSlots = (props) => {
                             {daySlots}
                             <ContainerSendButton>
                             <SaveButton
-                            onClick = {checkSlotValue.length > 0 ?
+                            onClick = {
+                                checkSlotValue?.length > 0 ?
                             (e) => updateSlot({e,tab,selectOption,dateTime,selectedPatients,patientsData,onUpdateSlotValue}) 
-                            : 
+                                : 
                             (e) => sendSlot({e,tab,selectOption,dateTime,selectedPatients,patientsData,onSendSlotValue})}
                             >Zapisz</SaveButton>
                             </ContainerSendButton>

@@ -17,7 +17,12 @@ justify-content: center;
 align-items: center;
 background-color: white;
 opacity:1;
-transition: 2s;
+    @media ${props=> props.theme.media.tablet} {
+        padding-bottom: 0;
+        }
+    @media ${props=> props.theme.media.mobile} {
+          padding: 2px 0 0 0;
+        }
 `
 const StyledText = styled.p`
     margin-top: 18px;
@@ -26,6 +31,12 @@ const StyledText = styled.p`
     margin-block-start: 10px;
     margin-block-end: 0;
     text-align: center;
+    @media ${props=> props.theme.media.tablet} {
+          font-size: 13px;
+        }
+    @media ${props=> props.theme.media.mobile} {
+          font-size: 11px;
+        }
 `
 const StyledNavLink = styled(NavLink)`
     color: rgb(67, 166, 198);
@@ -44,8 +55,14 @@ const LoaderIcon = styled(FontAwesomeIcon)`
     font-size: 40px;
     top: 0;
     left: 0;
-    margin-top: 10px;
+    margin-top: 5px;
     color: rgb(80, 184, 231);
+    @media ${props=> props.theme.media.tablet} {
+          font-size: 35px;
+        }
+    @media ${props=> props.theme.media.mobile} {
+          font-size: 25px;
+        }
 ` 
 const RegistrationSuccess = () => {
     

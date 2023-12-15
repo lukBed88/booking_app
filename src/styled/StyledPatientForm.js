@@ -32,9 +32,7 @@ const ContainerForm = styled.div`
         border-radius: 18px;
         background-color: white;
         z-index: 2;
-
         @media ${props=> props.theme.media.tablet} {
-          border: 2px solid blue;
           width: 40vw;
         }
         @media ${props=> props.theme.media.mobile} {
@@ -169,17 +167,26 @@ const CloseButton = styled(FontAwesomeIcon)`
         transition:all 0.4s;
         color: black;
     }
-    @media ${props=> props.theme.media.mobile} {
+      @media ${props=> props.theme.media.mobile} {
           font-size: 16px
         }
 `
 const ContainerErrorMessage = styled.div`
+        width: 90%;
+        margin: 5px auto;
+        text-align: center;
 `
 const ErrorMessage = styled.p`
         margin-block-start: 1em;
         margin-block-end: 1em;
         font-size: 14px;
         color: #FF1205;
+        @media ${props=> props.theme.media.tablet} {
+          font-size: 13px;
+        }
+        @media ${props=> props.theme.media.mobile} {
+          font-size: 11px;
+        }
 `
 
 export {AddButton,

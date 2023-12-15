@@ -284,13 +284,21 @@ const IconOfficeHours = styled(FontAwesomeIcon)`
 `
 const ContainerErrorMessage = styled.div`
         text-align: center;
-        margin-bottom: 10px;
+        width: 90%;
+        margin: 5px auto;
 `
 const ErrorMessage = styled.p`
         margin-block-start: 0;
         margin-block-end: 0;
         font-size: 14px;
         color: #FF1205;
+        @media ${props=> props.theme.media.tablet} {
+          font-size: 13px;
+        }
+
+        @media ${props=> props.theme.media.mobile} {
+          font-size: 11px;
+        }
 `
 export {DoctorContainer,
     FormTitle,

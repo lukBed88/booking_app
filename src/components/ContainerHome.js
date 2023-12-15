@@ -13,6 +13,7 @@ const ContainerHome = styled.div`
     margin: 0 auto;
     padding: 30px 0;
     @media ${props=> props.theme.media.mobile} {
+       width: 35vw;
        padding: 15px 0;
   }
 `

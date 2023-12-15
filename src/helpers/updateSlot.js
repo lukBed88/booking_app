@@ -8,7 +8,7 @@ const updateSlot = async (props) => {
         const { e,tab,selectOption,dateTime,
             selectedPatients,patientsData,
             onUpdateSlotValue } = props;
-        
+                    
         e.preventDefault()
         const dayID = idSlotDay(tab,selectOption,dateTime)
         const entriesSelectedPatients = Object.entries(selectedPatients)

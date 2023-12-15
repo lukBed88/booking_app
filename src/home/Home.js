@@ -8,7 +8,7 @@ const Container = styled.div`
     position: absolute;
     display: flex;
     width: 25vw;
-    top: 30%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
     border: 1px solid black;
@@ -51,6 +51,10 @@ const StyledNavLink = styled(NavLink)`
         border: 1px solid rgb(80, 184, 231);
         color: white;
     }
+    @media ${props=> props.theme.media.tablet} {
+        font-size: 15px;
+        
+  }
     @media ${props=> props.theme.media.mobile} {
         width: 54%;
         margin: 5px auto;

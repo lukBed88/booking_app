@@ -148,6 +148,5 @@ const LiOptions = styled.li`
         color: white;
         background-color: rgb(80, 184, 231);
     }
-    /* test */
 `
 export {ContainerMenu,ContainerNavLink,StyledNavLink,StyledIconFontAwesome,StyledIconFontAwesomeSettings,StyledButton,UlOption,LiOptions}

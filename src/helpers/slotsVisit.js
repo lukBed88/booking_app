@@ -1,4 +1,3 @@
-// ZWRACA WIZYTY ZE SLOTAMIW DANYM DNIU
 const slotsVisit = (tab,selectOption,date) => {
   let fullDate = '';
   const visits = tab

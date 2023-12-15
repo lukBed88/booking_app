@@ -3,7 +3,6 @@ import { getIDToken } from "../auth"
 const UPDATE_PATIENT_VISIT_DATA_URL = 'https://medic-app-6746d-default-rtdb.firebaseio.com/patients'
 export const updatePatientVisit = (patientID,visit) => {
     const token = getIDToken()
-    console.log('TOKEN ' ,token)
 
     const options = {
         method: 'POST',
