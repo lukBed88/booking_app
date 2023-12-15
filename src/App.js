@@ -7,7 +7,6 @@ import Calendar from './components/Calendar'
 import ResetPasswordPanel from './home/ResetPassword/ResetPasswordPanel'
 
 function App() {
-
   return (
     <Router>
       <Routes>

@@ -62,7 +62,7 @@ const StyledNavLink = styled(NavLink)`
   }
 `
 const Home = () => {
-    
+
     return (
         <ThemeProvider theme={media}>
         <Container>
