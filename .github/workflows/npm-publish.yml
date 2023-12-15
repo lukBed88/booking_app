@@ -28,4 +28,14 @@ jobs:
           node-version: 16
           registry-url: https://registry.npmjs.org/
       - run: npm i
+<<<<<<< HEAD
       - run: npm run build
+=======
+      - run: npm build
+      - uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: build # The folder the action should deploy.
+          token: ${{ secrets.TOKEN }}
+          BRANCH: gh-pages
+
+>>>>>>> develop
