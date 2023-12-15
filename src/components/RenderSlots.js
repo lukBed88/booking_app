@@ -48,6 +48,7 @@ const RenderSlots = (props) => {
                         />
                     )
                 })
+                
 
                 return (
                     <ContainerDay>
