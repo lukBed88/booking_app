@@ -142,9 +142,6 @@ const PatientCardData = (props) => {
                 :
                 null
             }
-            {/* {
-                actv === true ? <StyledWindow onClick = {(e) => isRemove(e) }/> : null
-            } */}
         </ContainerPatientCard>
     )
 }
