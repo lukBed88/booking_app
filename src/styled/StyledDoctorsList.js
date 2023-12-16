@@ -18,7 +18,7 @@ const ContainerPatientCard = styled.div`
         border: 2px solid black;
         border-radius: 18px;
         background-color: white;
-        z-index: 10;
+        z-index: 6;
         @media ${props=> props.theme.media.tablet} {
           width: 26vw;
         }

@@ -5,22 +5,31 @@ import { logOut } from "../auth";
 import { useNavigate } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import media from '../styled/ResponseStyled'
+import StyledConfirmWindow from "../styled/StyledConfirmWindow";
 
 const Welcome = (props) => {
     const {onClick,clearFlags,userData} = props
 
     const [active,setIsActive] = React.useState(false)
+    const [remove,isRemove] = React.useState(false)
+
     const navigation = useNavigate()
 
-    const logOutAccount = async () => {
-        await logOut()
-        navigation('/')
+    const logOutAccount = async (e) => {
+        e.preventDefault()
+        const { name } = e.target
+        if(name === 'yes'){
+            await logOut()
+            navigation('/')
+        }
+
+        isRemove(false)
     }
 
     const renderOptions = () => {
         return (
             <>
-                <LiOptions onClick={() => logOutAccount()}>Wyloguj się</LiOptions>
+                <LiOptions onClick={() => isRemove(true)}>Wyloguj się</LiOptions>
                 <LiOptions>{userData.email}</LiOptions>
             </>
         )
@@ -38,6 +47,14 @@ const Welcome = (props) => {
                 {renderOptions()}
                 </UlOption>
         </ContainerMenu>
+        {
+            remove === true ?
+            <StyledConfirmWindow
+                onClick={(e) => logOutAccount(e)}
+            />
+            :
+            null
+        }
         </ThemeProvider>
     )
 }

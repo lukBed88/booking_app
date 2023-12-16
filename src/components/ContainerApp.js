@@ -16,9 +16,4 @@ const OverlayContainer  = styled.div`
     background-color: rgba(255,255,255,0.6);
 `
 
-const ContainerConfirm = styled.div`
-  border: ${(props) => props.isActive ? '5px solid blue' : '5px solid orange'};
-  background-color: yellowgreen;
-`
-
-export  {Container,OverlayContainer,ContainerConfirm }
+export  {Container,OverlayContainer }

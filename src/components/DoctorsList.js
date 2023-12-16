@@ -112,7 +112,7 @@ const DoctorsList = (props) => {
             {doctorList()}
         {
             visible === true ?
-            <ContainerPatientCard>
+            <ContainerPatientCard isActive={delDoctor}>
                 <HeaderContainer>
                     <ContainerIconUser>
                         <IconUser icon={faUserDoctor}/>
@@ -127,7 +127,6 @@ const DoctorsList = (props) => {
                 isActive={delDoctor}
                 icon={faUserSlash} 
                 onClick={() => changeOnRemove()}/>
-                {/* <ButtonDeleteDoctor icon={faUserSlash} onClick={() => removeDoctor()}/> */}
                         {doctorData()}
             </ContainerPatientCard>
             :

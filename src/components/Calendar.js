@@ -15,7 +15,7 @@ import officeHoursDoctor from "../helpers/officeHoursDoctor";
 import { DoctorForm,AddDoctorButton, DoctorContainer } from "./DoctorForm";
 import doctorList from "../helpers/doctorList";
 import { DoctorsList } from "./DoctorsList";
-import Welcome from "./Welcome";
+import Menu from "./Menu";
 import allVisits from "../helpers/allVisitsOnThePatientSide";
 import parseDate from "../helpers/parseDate";
 import sendDoctorData from "../helpers/sendDoctorData";
@@ -257,7 +257,7 @@ return (
       {!isLoading && (<></>)} 
         <>
           {allVisits(patientTab)}
-          <Welcome
+          <Menu
             userData = {userData}
             onClick={(e) => renderList(e)}
             clearFlags={() => {

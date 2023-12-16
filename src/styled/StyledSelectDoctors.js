@@ -8,6 +8,7 @@ const SelectDoctorsOption = styled(Select)`
     height: auto; 
     margin-left: 20px;
     margin-right: 10px;
+    z-index: 6;
     &::placeholder {
         color: red;
     }
