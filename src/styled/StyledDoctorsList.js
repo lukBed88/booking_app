@@ -18,6 +18,7 @@ const ContainerPatientCard = styled.div`
         border: 2px solid black;
         border-radius: 18px;
         background-color: white;
+        z-index: 10;
         @media ${props=> props.theme.media.tablet} {
           width: 26vw;
         }
@@ -38,6 +39,8 @@ const DoctorDataLi = styled.li`
     transition: 0.4s;
     margin: 3px 0 3px 0;
     color: rgb(105, 105, 105);
+    z-index:${(props) => props.isActive ? '-1' : '3'};
+    filter: blur(${(props) => props.isActive ? '1px' : 'none'});
     &:hover {
         transition: 0.4s;
         color: rgb(80, 184, 231);
@@ -167,6 +170,7 @@ const ButtonCloseDoctorCard = styled(FontAwesomeIcon)`
     font-size: 22px;
     color: white;
     cursor: pointer;
+    display:${(props) => props.isActive ? 'none' : 'block'};
     transition: 0.5s;
     &:hover {
         color: black;
@@ -201,6 +205,8 @@ const ButtonDeleteDoctor = styled(FontAwesomeIcon)`
     font-size: 22px;
     color: white;
     cursor: pointer;
+    /* color:${(props) => props.isActive ? 'red' : 'blue'}; */
+    display:${(props) => props.isActive ? 'none' : 'block'};
     transition: 0.5s;
     &:hover {
         color: black;

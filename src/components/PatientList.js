@@ -3,7 +3,7 @@ import React from "react";
 import patientList from "../helpers/patientList";
 import PatientCardData from "./PatientCardData";
 import {faXmark} from '@fortawesome/free-solid-svg-icons'
-import {ContainerPatientList,ContainerPatients,InputSearchPatient,PatientsListUl,PatientsListLi,IconCloseUl,TitleHeader,ContainerList} from '../styled/StyledPatientList'
+import {ContainerPatientList,ContainerPatients,InputSearchPatient,PatientsListUl,PatientsListLi,IconCloseUl,TitleHeader,ContainerList, OverlayDiv} from '../styled/StyledPatientList'
 
 const PatientList = (props) => {
 
@@ -13,6 +13,8 @@ const PatientList = (props) => {
     const [inputValue, setIsInputValue] = React.useState('');
     const [visible,setIsVisible] = React.useState(false);
     const [identityPatient,setIsIdentityPatient] = React.useState();
+
+    const [remove, setRemove] = React.useState(false);
 
     const patientsFullList = () => {
         const listOfPatientsArray = patientList(patientsName)
@@ -45,7 +47,6 @@ const PatientList = (props) => {
         setIsVisible(true)
         setIsIdentityPatient(idPatient)
         isActive(true)
-        
     }
 
     const inputText = (e) => {
@@ -57,17 +58,28 @@ const PatientList = (props) => {
         setIsVisible(false)
         isActive(false)
     }
+
+    const handleRemoveState = (value) => {
+      setRemove(value)
+    }
     
     return (
         <ContainerPatientList pattern={toggle}>
         {toggle && (
           <div>
+            <ContainerPatientList isActivate = {remove}>
             <TitleHeader>Pacjenci</TitleHeader>
-            <ContainerList>{patientsFullList()}</ContainerList>
+            <ContainerList>
+              <OverlayDiv isActivate = {remove}>
+              {patientsFullList()}
+              </OverlayDiv>
+              </ContainerList>
+            </ContainerPatientList>
           </div>
         )}
         <ContainerPatients>
           <InputSearchPatient
+            isActive={remove}
             placeholder="Wyszukaj pacjenta"
             onChange={(e) => inputText(e)}
             onClick={() => setInputFocused(true)}
@@ -91,6 +103,7 @@ const PatientList = (props) => {
               listOfPatient={patientsName}
               listOfDoctors={doctorsName}
               deleteVisit={refreshApp}
+              onRemoveState = {handleRemoveState}
               hidePatientCard={() => refreshCalendar()}
             />
           )}

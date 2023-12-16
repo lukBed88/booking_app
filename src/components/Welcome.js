@@ -7,7 +7,7 @@ import { ThemeProvider } from "styled-components";
 import media from '../styled/ResponseStyled'
 
 const Welcome = (props) => {
-    const {onClick,clearFlags} = props
+    const {onClick,clearFlags,userData} = props
 
     const [active,setIsActive] = React.useState(false)
     const navigation = useNavigate()
@@ -21,7 +21,7 @@ const Welcome = (props) => {
         return (
             <>
                 <LiOptions onClick={() => logOutAccount()}>Wyloguj się</LiOptions>
-                <LiOptions>Usuń konto</LiOptions>
+                <LiOptions>{userData.email}</LiOptions>
             </>
         )
     }

@@ -23,6 +23,7 @@ import RenderSlots from "./RenderSlots";
 import Loader from "./Loader";
 import { ThemeProvider } from "styled-components";
 import media from '../styled/ResponseStyled'
+import { getUserData } from "../auth";
 
 export const Calendar = () => {
 
@@ -46,6 +47,7 @@ export const Calendar = () => {
     const [toggleDoctor,setIsToggleDoctor] = React.useState(false)
     const [togglePatient,setIsTogglePatient] = React.useState(false)
     const [patientCardActive,setPatientCardActive] = React.useState(false)
+    const [userData,setUserData] = React.useState({})
 
     const [isLoading, setIsLoading] = React.useState(false);
 
@@ -67,6 +69,11 @@ export const Calendar = () => {
                     .map((data) => data)
                     .filter((item) => item);
                 setIsPatientTab(newPatientTab)
+
+                await getUserData()
+                  .then((data) =>{
+                    setUserData(data.users[0])
+                  } )
             } catch (error) {
                 console.error('Błąd podczas pobierania danych:', error);
             } finally {
@@ -229,7 +236,6 @@ export const Calendar = () => {
     }
     const renderList = (e) => {
     e.preventDefault()
-    console.log(e.target)
     const {name} = e.target
     if(name === 'doctor'){
         setIsToggleDoctor(true)
@@ -252,6 +258,7 @@ return (
         <>
           {allVisits(patientTab)}
           <Welcome
+            userData = {userData}
             onClick={(e) => renderList(e)}
             clearFlags={() => {
               setIsToggleDoctor(false);

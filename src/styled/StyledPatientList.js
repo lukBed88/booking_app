@@ -3,10 +3,11 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 
 const ContainerPatientList = styled.div`
         display: flex;
-        width: 100vw;
+        position: relative;
         flex-direction: ${props => props.pattern ? 'row' : 'column'};
         justify-content: ${props => props.pattern ? 'center' : 'flex-start'};
         margin-top: ${props => props.pattern ? '40px' : '10px'};
+        z-index: ${(props) => props.isActivate ? '-1' : '5'};
         @media ${props=> props.theme.media.mobile} {
           font-size: ${props => props.pattern ? '14px' : '12px'};
           margin: 4px 0;
@@ -14,16 +15,20 @@ const ContainerPatientList = styled.div`
           justify-content: center;
         }
 `
+const OverlayDiv = styled.div`
+        width: 100%;
+        height: 100%;
+        z-index: ${(props) => props.isActivate ? '-1' : '5'};
+        filter: blur(${(props) => props.isActivate ? '1px' : 'none'});
+`
 const ContainerPatients = styled.div`
         display: flex;
         flex-direction: column;
         width: 14vw;
         margin-left: 14vw;
         margin-top: 40px;
-
         @media ${props=> props.theme.media.tablet} {
           width: 180px;
-          
         }
         @media ${props=> props.theme.media.mobile} {
           width: 180px;
@@ -31,6 +36,7 @@ const ContainerPatients = styled.div`
           margin: 10px auto;
         }
 `
+
 const InputSearchPatient = styled.input`
         max-width: 220px;
         border: none;
@@ -38,6 +44,7 @@ const InputSearchPatient = styled.input`
         border-bottom: 1px solid black;
         padding-left: 1px;
         font-size: 14px;
+        z-index: ${(props) => props.isActive ? '-5' : '3'};
         &::placeholder {
             color: #696969;
 
@@ -79,7 +86,7 @@ const PatientsListLi = styled.li`
         margin-left: ${props => props.pattern ? '0' : '5px'};
         padding-left: 10px;
         cursor: pointer;
-        color: #696969;
+        /* color: #696969; */
         transition: 0.3s;
         &:hover {
             background-color: ${props => props.pattern ? 'none' : 'rgba(80, 184, 231,0.7);'};
@@ -136,6 +143,7 @@ const ContainerList = styled.div`
 `
 export {ContainerPatientList,
     ContainerPatients,
+    OverlayDiv,
     InputSearchPatient,
     PatientsListUl,
     PatientsListLi,

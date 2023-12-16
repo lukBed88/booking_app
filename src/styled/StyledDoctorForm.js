@@ -7,11 +7,11 @@ const DoctorContainer  = styled.div`
         width: 28vw;
         top: 50%;
         left: 50%;
-        transform: translate(-50%,-8%);
+        transform: translate(-50%,0);
         border: 2px solid black;
         border-radius: 18px;
         background-color: white;
-        z-index: 2;
+        z-index: 3;
         @media ${props=> props.theme.media.tablet} {
           width: 41vw;
         }
@@ -201,7 +201,7 @@ const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
 `
 const CloseButton = styled(FontAwesomeIcon)`
     position: absolute;
-    top:6%;
+    top:5%;
     left: 93%;
     transform: translate(-50%,-50%);
     font-size: 20px;

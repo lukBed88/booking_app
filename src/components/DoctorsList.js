@@ -16,16 +16,18 @@ import {
     DoctorDataContainer,
     DoctorData,
     ButtonDeleteDoctor,
-    TitleHeader
+    TitleHeader,
 } from '../styled/StyledDoctorsList'
 import allVisitsOnThePatientSide from "../helpers/allVisitsOnThePatientSide";
 import deleteVisitOnThePatientSide from "../apiEndpoints/deleteVisitOnThePatientSide";
+import StyledConfirmWindow from "../styled/StyledConfirmWindow";
 
 const DoctorsList = (props) => {
 
     const [visible,setIsVisible] = React.useState(false)
     const [idDoctor,setIsId] = React.useState()
-     
+    const [delDoctor,setDelDoctor] = React.useState(false) 
+
     const {doctorTab,remove,patientTab} = props
 
     const doctorList = () => {
@@ -33,6 +35,7 @@ const DoctorsList = (props) => {
             const doctorFullName = doctor[0].name + " " + doctor[0].surname
             return (
                 <DoctorDataLi 
+                    isActive={delDoctor}
                     key={index} 
                     data-id = {doctor[0].id}
                     onClick={(e) => choiceDoctor(e)}
@@ -60,7 +63,10 @@ const DoctorsList = (props) => {
         }).filter((item) => item)
     }
 
-    const removeDoctor = async () => {
+    const removeDoctor = async (e) => {
+        e.preventDefault()
+        const {name} = e.target
+        if(name === 'yes'){
         const bookedVisitsRemovedDoctor = allVisitsOnThePatientSide(patientTab,idDoctor)
 
         if (bookedVisitsRemovedDoctor.length > 0) {
@@ -70,10 +76,13 @@ const DoctorsList = (props) => {
             }
         }))
     }
-    
         await deleteDoctor(idDoctor)
+        setIsVisible(false)
         setIsId(!idDoctor)
         remove()
+        }
+    setDelDoctor(false)
+
     }
 
     const doctorData = () => {
@@ -91,7 +100,13 @@ const DoctorsList = (props) => {
         return doctorData
     }
 
+    const changeOnRemove = () => {
+        console.log('changeOnRemove')
+        setDelDoctor(true)
+    }
+
     return (
+        <>
         <ContainerDoctors>
             <TitleHeader>Lekarze</TitleHeader>
             {doctorList()}
@@ -103,15 +118,31 @@ const DoctorsList = (props) => {
                         <IconUser icon={faUserDoctor}/>
                     </ContainerIconUser>
                         <DoctorNameHeader>{doctorName()}</DoctorNameHeader>
-                        <ButtonCloseDoctorCard icon={faXmark} onClick={() => setIsVisible(false)}/>
+                        <ButtonCloseDoctorCard 
+                        isActive={delDoctor}
+                        icon={faXmark} 
+                        onClick={() => setIsVisible(false)}/>
                 </HeaderContainer>
-                <ButtonDeleteDoctor icon={faUserSlash} onClick={() => removeDoctor()}/>
+                <ButtonDeleteDoctor 
+                isActive={delDoctor}
+                icon={faUserSlash} 
+                onClick={() => changeOnRemove()}/>
+                {/* <ButtonDeleteDoctor icon={faUserSlash} onClick={() => removeDoctor()}/> */}
                         {doctorData()}
             </ContainerPatientCard>
             :
             null    
         }
         </ContainerDoctors>
+        {
+            delDoctor === true ?
+            <StyledConfirmWindow
+                onClick={(e) => removeDoctor(e)}
+            />
+            :
+            null
+        }
+        </>
     )
 }
 

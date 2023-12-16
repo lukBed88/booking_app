@@ -11,11 +11,13 @@ import deleteDaySlot from "../apiEndpoints/deleteDaySlot";
 import {ContainerPatientCard,HeaderContainer,ContainerIconUser,IconUser,IconFormUser,PatientNameHeader,PatientVisitParagraph,
     PatientNameParagraph,PatientNameDescribe,PatientDataContainer,PatientData,PatientVisitContainer,PatientVisitCard,
     IconPatientVisit,PatientVisitInfo,ButtonDeleteVisit,ButtonDeletePatient,ButtonClosePatientCard} from '../styled/StyledPatientCard'
+import StyledConfirmWindow from "../styled/StyledConfirmWindow";
 
 const PatientCardData = (props) => {
 
-    const {patientId,listOfPatient,listOfDoctors,deleteVisit,hidePatientCard} = props
+    const {patientId,listOfPatient,listOfDoctors,deleteVisit,hidePatientCard,onRemoveState} = props
     let visitsArray = []
+    const [remove,setRemove] = React.useState(false)
 
     const patientData = () => {
         const selectedPatient = listOfPatient.map((patient) => {
@@ -80,7 +82,7 @@ const PatientCardData = (props) => {
             const patientId = visit.patientId
             const visitId = visit.visitId
             return(
-               <PatientVisitCard key={visit.visitId}>
+               <PatientVisitCard isActive = {remove} key={visit.visitId}>
             <PatientVisitInfo><IconPatientVisit icon={faCalendarDays}/>{visit.date}</PatientVisitInfo>
             <PatientVisitInfo><IconPatientVisit icon={faUserDoctor}/>{visit.doctor}</PatientVisitInfo> 
             <PatientVisitInfo><IconPatientVisit icon={faClock}/>{visit.hour}</PatientVisitInfo> 
@@ -114,26 +116,44 @@ const PatientCardData = (props) => {
         deleteVisit()
     }
 
-    const removePatient = async () => {
-        console.log('delete')
-        await deletePatient(patientId)
-        deleteVisit()
+    const removePatient = async (e) => {
+        e.preventDefault()
+        const {name} = e.target
+        if(name === 'yes') {
+            await deletePatient(patientId)
+            deleteVisit()
+            setRemove(true)
+            hidePatientCard()
+        }
+            setRemove(false)
+            handleRemoveState(false)
+    }
+
+    const handleRemoveState = (value) => {
+        onRemoveState(value)
+    }
+
+    const changeOnRemove = () => {
+        setRemove(true)
+        handleRemoveState(true)
     }
 
     return (
-        <ContainerPatientCard>
+        <>
+        <ContainerPatientCard isActive = {remove}>
             <HeaderContainer>
                 <ContainerIconUser>
                     <IconUser icon={faUser}/>
                 </ContainerIconUser>
                     <PatientNameHeader>{patientData()}</PatientNameHeader>
             </HeaderContainer>
-            <ButtonDeletePatient icon={faUserSlash} onClick={() => removePatient()}>Odwołaj wizytę</ButtonDeletePatient>
+            <ButtonDeletePatient isActive={remove} icon={faUserSlash} onClick={() => changeOnRemove()}/>
             <ButtonClosePatientCard
+                isActive={remove}
                 icon={faXmark}
                 onClick={hidePatientCard}
             />
-            {addPatientData()}
+                {addPatientData()}
             {
                 visitsArray.length > 0 ?
                 <PatientVisitContainer>
@@ -142,7 +162,15 @@ const PatientCardData = (props) => {
                 :
                 null
             }
-        </ContainerPatientCard>
+            </ContainerPatientCard>
+                {
+                remove === true ?
+                <StyledConfirmWindow
+                    onClick={(e) => removePatient(e)}/>
+                    :
+                    null
+                }
+                    </>
     )
 }
 

@@ -9,7 +9,7 @@ const ContainerPatientCard = styled.div`
         border: 2px solid black;
         border-radius: 18px;
         background-color: white;
-        z-index: 3;
+        z-index: ${(props) => props.isActive ? '-1' : '3'};
         @media ${props=> props.theme.media.tablet} {
           width: 42vw;
         }
@@ -48,9 +48,6 @@ const ContainerIconUser = styled.div`
     align-content: center;
     background-color: white;
     border-radius: 50%;
-    @media ${props=> props.theme.media.tablet} {
-         
-        }
     @media ${props=> props.theme.media.mobile} {
         min-width: 45px;
         min-height: 45px;
@@ -161,6 +158,7 @@ const PatientVisitCard = styled.div`
     border: 1px solid black;
     padding: 10px 0;
     margin: 5px 0;
+    z-index: ${(props) => props.isActive ? '-1' : '3'};
 `
 const IconPatientVisit = styled(FontAwesomeIcon)`
     font-size: 18px;
@@ -210,6 +208,7 @@ const ButtonDeletePatient = styled(FontAwesomeIcon)`
     font-size: 22px;
     color: white;
     cursor: pointer;
+    display:${(props) => props.isActive ? 'none' : 'block'};
     transition: 0.5s;
     &:hover {
         color: black;
@@ -227,6 +226,7 @@ const ButtonClosePatientCard = styled(FontAwesomeIcon)`
     font-size: 22px;
     color: white;
     cursor: pointer;
+    display:${(props) => props.isActive ? 'none' : 'block'};
     transition: 0.5s;
     &:hover {
         color: black;
