@@ -10,9 +10,7 @@ https://amazing-mousse-d3b288.netlify.app/
 Uruchamianie na serwerze:
 
 -sklonuj repozytorium
-
 -uruchom terminal i wpisz komendę: npm i
-
 -uruchom stronę: npm start
 
 Aplikacja jest nadal na etapie udoskonalania
