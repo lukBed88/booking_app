@@ -1,5 +1,3 @@
-/* eslint-disable no-return-assign */
-
 const ID_TOKEN_KEY = 'idToken'
 const REFRESH_TOKEN_KEY = 'refreshToken'
 

@@ -1,4 +1,3 @@
-/* eslint-disable array-callback-return */
 import React from "react";
 import idSlotDay from "../helpers/idSlotDay";
 import slotsVisit from "../helpers/slotsVisit";

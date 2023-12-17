@@ -5,7 +5,6 @@ const Container = styled.div`
   height: 100%;
   z-index: 10;
 `
-
 const OverlayContainer  = styled.div`
     position: absolute;
     top: ${(props) => props.search ? '0' : '9%'};
@@ -15,5 +14,4 @@ const OverlayContainer  = styled.div`
     z-index: 1;
     background-color: rgba(255,255,255,0.6);
 `
-
 export  {Container,OverlayContainer }

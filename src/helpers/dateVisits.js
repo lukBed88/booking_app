@@ -1,5 +1,3 @@
-/* eslint-disable array-callback-return */
-
 export const dateVisits = (selectOption,array) => {
 
     const visits = array.map((item) => {

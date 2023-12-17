@@ -2,7 +2,7 @@ import React from "react";
 import RegistrationForm from "../RegistrationForm";
 import signUp from "../../auth/signUp";
 import { validateFormCreateAccount } from "../../helpers/validator";
-import { ContainerHome,StyledNavLink } from "../../components/ContainerHome";
+import { ContainerHome,StyledNavLink } from "../../styled/ContainerHome";
 import LoginLoader from "../../components/LoginLoader";
 import RegistrationSuccess from "../../styled/StyledRegistrationSuccess";
 import { ThemeProvider } from "styled-components";

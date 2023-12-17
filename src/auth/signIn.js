@@ -13,7 +13,6 @@ const signIn = (email, password) => {
     .then((data => {
       setIDToken(data.idToken)
       setRefreshToken(data.refreshToken)
-      // console.log('LOGOWANIE DATA',data)
       return data
     }))
 }

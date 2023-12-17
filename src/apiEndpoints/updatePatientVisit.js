@@ -17,7 +17,7 @@ export const updatePatientVisit = (patientID,visit) => {
         return resp.json()
     })
     .then((data) => {
-        console.log(data)
+        
     })
 }
 

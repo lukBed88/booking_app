@@ -1,7 +1,7 @@
 import React from "react";
 import { ContainerCalendar } from "./DaySlots";
 import getDoctorsData from "../apiEndpoints/getDoctorsData";
-import {Container,OverlayContainer } from "./ContainerApp";
+import {Container,OverlayContainer } from "../styled/ContainerApp";
 import SelectDoctors from "./SelectDoctors";
 import { dateVisits } from "../helpers";
 import { DoctorCalendar,CustomTile } from "./DoctorCalendar";
@@ -144,7 +144,6 @@ export const Calendar = () => {
         setIsSelectOption(e.value)
         const days = dateVisits(e.value,tab)
         setIsTerms(days)
-        console.log('selectOptionChoiceDoctorPO',selectOption)
     }
     const occupiedDays = ({ date }) => {
         const day = date.getDate()
@@ -211,7 +210,6 @@ export const Calendar = () => {
         })
     }
     const doctorData = (e) => {
-        console.log('e?',e)
         const {name,value} = e.target
         setIsDoctorFormValue({
             ...doctorFormValue,

@@ -1,4 +1,3 @@
-/* eslint-disable prefer-promise-reject-errors */
 import { makeRequest } from './makeRequest'
 import { getIDToken } from './token'
 

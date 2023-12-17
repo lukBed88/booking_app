@@ -1,4 +1,3 @@
-/* eslint-disable array-callback-return */
 const validationDoctorForm = (doctorFormValue) => {
     const requireKeys = ['name', 'surname', 'phoneNumber']
     const miss = []

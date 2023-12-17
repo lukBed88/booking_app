@@ -16,9 +16,6 @@ export const postDoctorsData = (doctorId,visits) => {
     .then((resp) => {
         return resp.json()
     })
-    // .then((data) => {
-    //     console.log(data)
-    // })
 }
 
 export default postDoctorsData

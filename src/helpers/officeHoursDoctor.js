@@ -1,4 +1,3 @@
-/* eslint-disable array-callback-return */
 const officeHoursDoctor = (tab,selectOption) => {
 
     const officeHours = tab.map((data) => {

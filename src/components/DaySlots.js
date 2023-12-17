@@ -1,4 +1,3 @@
-/* eslint-disable array-callback-return */
 import React from 'react'
 import {faXmark,faCalendarDays,faUserXmark} from '@fortawesome/free-solid-svg-icons'
 import patientList from '../helpers/patientList'

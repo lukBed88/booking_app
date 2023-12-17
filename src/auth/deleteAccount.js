@@ -1,4 +1,3 @@
-/* eslint-disable prefer-promise-reject-errors */
 import makeRequest from '../fetchDataFirebase'
 import { FIREBASE_APP_KEY } from './const'
 import { getIDToken } from './token'

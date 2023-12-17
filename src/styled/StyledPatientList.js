@@ -81,12 +81,13 @@ const PatientsListLi = styled.li`
         display: flex;
         max-width: 90%;
         list-style: none;
-        margin: 3px 0;
+        margin: 7px 0;
+        font-size: 16px;
         font-size: ${props => props.pattern ? '18px' : '14px'};
         margin-left: ${props => props.pattern ? '0' : '5px'};
         padding-left: 10px;
+        color: rgb(105, 105, 105);
         cursor: pointer;
-        /* color: #696969; */
         transition: 0.3s;
         &:hover {
             background-color: ${props => props.pattern ? 'none' : 'rgba(80, 184, 231,0.7);'};
@@ -95,7 +96,7 @@ const PatientsListLi = styled.li`
             border-radius: 4px;
         }
         @media ${props=> props.theme.media.tablet} {
-            font-size: ${props => props.pattern ? '18px' : '14px'};
+            font-size: ${props => props.pattern ? '16px' : '14px'};
         }
         @media ${props=> props.theme.media.mobile} {
           font-size: ${props => props.pattern ? '14px' : '12px'};

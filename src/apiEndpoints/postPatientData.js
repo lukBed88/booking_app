@@ -16,7 +16,6 @@ export const postPatientData = (patient) => {
         return resp.json()
     })
     .then((data) => {
-        console.log(data)
     })
 }
 

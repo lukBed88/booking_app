@@ -1,4 +1,3 @@
-/* eslint-disable array-callback-return */
 import React from "react";
 import {faXmark,faUser,faSignature,faIdCard,faPhone,faHouseChimney} from '@fortawesome/free-solid-svg-icons'
 import validationPatientForm from "../helpers/validationPatientForm";

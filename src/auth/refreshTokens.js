@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable prefer-promise-reject-errors */
 import makeRequest from '../fetchDataFirebase'
 import { FIREBASE_APP_KEY } from './const'
 import { getRefreshToken, setIDToken, setRefreshToken } from './token'

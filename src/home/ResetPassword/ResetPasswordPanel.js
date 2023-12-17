@@ -1,7 +1,7 @@
 import sendPasswordResetEmail from "../../auth/sendPasswordResetEmail"
 import React from "react"
 import { validateReset } from "../../helpers/validator"
-import { ContainerHome, StyledNavLink } from "../../components/ContainerHome"
+import { ContainerHome, StyledNavLink } from "../../styled/ContainerHome"
 import ResetPasswordForm from "../ResetPasswordForm"
 import { ThemeProvider } from "styled-components"
 import media from '../../styled/ResponseStyled'

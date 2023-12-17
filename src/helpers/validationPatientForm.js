@@ -1,4 +1,3 @@
-/* eslint-disable array-callback-return */
 const validationPatientForm = (patientFormValue) => {
     const requireKeys = ['imie', 'nazwisko', 'phoneNumber', 'pesel', 'adres']
     const miss = []

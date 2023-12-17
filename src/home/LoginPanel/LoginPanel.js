@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from 'react-router-dom'
 import LoginForm from "../LoginForm";
 import signIn from "../../auth/signIn";
-import {ContainerHome,StyledNavLink} from "../../components/ContainerHome";
+import {ContainerHome,StyledNavLink} from "../../styled/ContainerHome";
 import { validateFormLogIn } from "../../helpers/validator";
 import LoginLoader from "../../components/LoginLoader";
 import { ThemeProvider } from "styled-components";

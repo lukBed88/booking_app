@@ -1,4 +1,3 @@
-/* eslint-disable array-callback-return */
 const patientList = (patientTab) => {
     if(patientTab.length > 0){
     const patientsName = patientTab.map((item) => {
